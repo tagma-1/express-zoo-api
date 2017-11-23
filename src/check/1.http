@@ -44,3 +44,34 @@ Content-Type: application/json
   "name": "Beaver",
   "count": 50
 }
+
+###
+
+GET http://localhost:7000/sea-critters
+
+###
+
+GET http://localhost:7000/sea-critters/1
+
+###
+
+POST http://localhost:7000/sea-critters
+Content-Type: application/json
+
+{
+  "name": "Octopodes",
+  "count": 20
+}
+
+###
+
+DELETE http://localhost:7000/sea-critters/4
+
+###
+
+PUT http://localhost:7000/sea-critters/1
+Content-Type: application/json
+
+{
+  "count": 100
+}
