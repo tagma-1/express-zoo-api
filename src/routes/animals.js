@@ -4,7 +4,14 @@ const Animal = require('../models/animal');
 const router = express.Router();
 
 router.get('/animals', (req, res) => {
+  // If a filter is passed in, assign it to 'q'
+  q = req.body;
+  // Return a filtered list if required
+  if (q) {
+    res.json(Animal.all(q));
+  } else {
   res.json(Animal.all());
+  }
 });
 
 router.get('/animals/:id', (req, res) => {

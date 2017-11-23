@@ -18,7 +18,8 @@ let seaCritters = [
 
 let nextId = 4; 
 
-function all() {
+function all(q) {
+  // Sort the sea critters alphabetically
   seaCritters.sort( function (a, b) {
     let nameA = a.name.toUpperCase(); // ignore upper and lowercase
     let nameB = b.name.toUpperCase(); // ignore upper and lowercase
@@ -31,7 +32,12 @@ function all() {
     // names must be equal
     return 0;
   })
+  // Return a filtered list if required
+  if (q) {
+    return seaCritters.filter(seacritter => seacritter.name === q.filter);
+  } else {
   return seaCritters;
+  }
 }
 
 function find(id) {

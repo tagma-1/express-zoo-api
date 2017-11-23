@@ -18,7 +18,8 @@ let animals = [
 
 let nextID = 4;
 
-function all() {
+function all(q) {
+  // Sort animals alphabetically
   animals.sort( function (a, b) {
     let nameA = a.name.toUpperCase(); // ignore upper and lowercase
     let nameB = b.name.toUpperCase(); // ignore upper and lowercase
@@ -31,7 +32,11 @@ function all() {
     // names must be equal
     return 0;
   })
+  if (q) {
+    return animals.filter(animal => animal.name === q.filter);
+  } else {
   return animals;
+  } 
 }
 
 function find(id) {

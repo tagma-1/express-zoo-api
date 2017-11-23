@@ -4,8 +4,16 @@ const Seacritter = require('../models/seacritter.js');
 const router = express.Router();
 
 router.get('/sea-critters', (req, res) => {
+  // If a filter is passed in, assign it to 'q'
+  q = req.body;
+  // Return a filtered list if required
+  if (q) {
+    res.json(Seacritter.all(q));
+  } else {
   res.json(Seacritter.all());
+  }
 });
+
 
 router.get('/sea-critters/:id', (req, res) => {
   const id = req.params['id'];

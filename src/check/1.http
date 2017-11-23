@@ -14,6 +14,15 @@ GET http://localhost:7000/animals
 
 ###
 
+GET http://localhost:7000/animals
+Content-Type: application/json
+
+{
+  "filter": "Giraffe"
+}
+
+###
+
 GET http://localhost:7000/animals/1
 
 ###
@@ -48,6 +57,15 @@ Content-Type: application/json
 ###
 
 GET http://localhost:7000/sea-critters
+
+###
+
+GET http://localhost:7000/sea-critters
+Content-Type: application/json
+
+{
+  "filter": "Shark"
+}
 
 ###
 
