@@ -37,7 +37,7 @@ DELETE http://localhost:7000/animals/4
 
 ###
 
-PUT http://localhost:7000/animals/1
+PATCH http://localhost:7000/animals/1
 Content-Type: application/json
 
 {

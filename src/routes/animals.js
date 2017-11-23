@@ -31,14 +31,28 @@ router.post('/animals', (req, res) => {
 router.delete('/animals/:id', (req, res) => {
   const animalId = req.params['id'];
   const updatedAnimals = Animal.destroy(animalId);
-  res.status(200).json(updatedAnimals);
+  if (updatedAnimals) {
+    res.status(200).json(updatedAnimals);  
+  } else {
+    res.status(404);
+    res.json({
+      error: `The animal with id '${animalId}' was not found`,
+    });
+  };
 })
 
-router.put('/animals/:id', (req, res) => {
+router.patch('/animals/:id', (req, res) => {
   const animalId = req.params['id'];
   const attributes = req.body;
   const updatedAnimal = Animal.update(animalId, attributes);
-  res.status(200).json(updatedAnimal);
+  if (updatedAnimal) {
+    res.status(200).json(updatedAnimal);  
+  } else {
+    res.status(404);
+    res.json({
+      error: `The animal with id '${animalId}' was not found`,
+    });
+  };
 });
 
 module.exports = router;

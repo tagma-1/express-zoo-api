@@ -54,6 +54,9 @@ function create(attributes) {
 
 function destroy(animalId) {
   let animal = find(animalId);
+  if (!animal) {
+    return null
+  };
   let index = animals.indexOf(animal);
   animals.splice(index, 1);
   return all();
@@ -61,8 +64,11 @@ function destroy(animalId) {
 
 function update(animalId, attributes) {
   let animal = find(animalId);
-  let updatedAnimal = Object.assign(animal, attributes);
-  return updatedAnimal;
+  if (!animal) {
+    return null
+  };
+  Object.assign(animal, attributes);
+  return animal;
 }  
 
 module.exports = {
