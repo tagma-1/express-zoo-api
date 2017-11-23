@@ -29,3 +29,12 @@ Content-Type: application/json
   "name": "Marmot",
   "count": 20
 }
+
+###
+
+DELETE http://localhost:7000/animals
+Content-Type: application/json
+
+{
+  "id": 4
+}

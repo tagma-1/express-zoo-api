@@ -28,4 +28,12 @@ router.post('/animals', (req, res) => {
   res.status(201).json(newAnimal);
 })
 
+router.delete('/animals', (req, res) => {
+  const animalId = req.body;
+  Animal.destroy(animalId);
+  res.status(200).json({
+    success: `The animal with id '${animalId.id}' was deleted`
+  });
+})
+
 module.exports = router;
