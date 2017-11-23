@@ -31,7 +31,7 @@ function all(q) {
     }
     // names must be equal
     return 0;
-  })
+  });
   if (q) {
     return animals.filter(animal => animal.name === q.filter);
   } else {
