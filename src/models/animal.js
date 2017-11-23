@@ -53,16 +53,22 @@ function create(attributes) {
 };
 
 function destroy(animalId) {
-  animals.forEach((animal, index) => {
-    if (animal.id === animalId) {
-      animals.splice(index, 1);
-    };
-  });
+  let animal = find(animalId);
+  let index = animals.indexOf(animal);
+  animals.splice(index, 1);
+  return all();
 };
+
+function update(animalId, attributes) {
+  let animal = find(animalId);
+  let updatedAnimal = Object.assign(animal, attributes);
+  return updatedAnimal;
+}  
 
 module.exports = {
   all,
   find,
   create,
-  destroy
+  destroy,
+  update
 }

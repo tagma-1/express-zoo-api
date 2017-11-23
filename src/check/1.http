@@ -32,9 +32,15 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:7000/animals
+DELETE http://localhost:7000/animals/4
+
+
+###
+
+PUT http://localhost:7000/animals/1
 Content-Type: application/json
 
 {
-  "id": 4
+  "name": "Beaver",
+  "count": 50
 }
