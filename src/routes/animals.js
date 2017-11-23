@@ -1,23 +1,25 @@
 const express = require('express');
+const Animal = require('../models/animal');
 
 const router = express.Router();
 
-let animals = [
-  {
-    name: 'Bonobo',
-    count: 15
-  },
-  {
-    name: 'Rhinoceros',
-    count: 4
-  },
-  {
-    name: 'Giraffe',
-    count: 8
-  }
-]
 router.get('/animals', (req, res) => {
-  res.json(animals);
+  res.json(Animal.all());
+});
+
+router.get('/animals/:id', (req, res) => {
+  const id = req.params['id'];
+  const animal = Animal.find(id);
+  // If animal was found
+  if (animal) {
+    res.json(animal);
+  // If animal was not found
+  } else {
+    res.status(404);
+    res.json({
+      error: `The animal with id '${id}' was not found`,
+    });
+  };
 });
 
 module.exports = router;
