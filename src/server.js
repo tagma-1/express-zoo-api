@@ -1,6 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const server = express();
+
+server.use(bodyParser.json());
 
 server.get('/', (req, res) => {
   res.json({ message: "This is home." });

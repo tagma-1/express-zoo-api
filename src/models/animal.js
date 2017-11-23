@@ -16,6 +16,8 @@ let animals = [
   }
 ]
 
+let nextID = 4;
+
 function all() {
   return animals;
 }
@@ -36,7 +38,22 @@ function find(id) {
   return foundAnimal;
 }
 
+function create(attributes) {
+  // Create new naimal 'record' copying atrributes across
+  // and assigning it an id
+  const newAnimal = Object.assign({}, attributes, { 
+    id: nextID
+  });
+  // Increment id for next animal
+  nextID++;
+  // Add to the array which stores data
+  animals.push(newAnimal);
+
+  return newAnimal;
+};
+
 module.exports = {
   all,
-  find
+  find,
+  create
 }
